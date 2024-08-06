@@ -239,6 +239,19 @@ export const getBarangPrediksi = async (req, res) => {
   }
 };
 
+export const getBarangPrediksiLatest = async (req, res) => {
+  try {
+    const response = await prisma.barang_prediksi.findFirst({
+      orderBy: {
+        id: "desc",
+      },
+    });
+    res.status(200).json(response);
+  } catch (error) {
+    res.status(500).json({ msg: error.message });
+  }
+};
+
 export const getBarangPrediksiById = async (req, res) => {
   try {
     const response = await prisma.barang_prediksi.findUnique({
@@ -257,10 +270,10 @@ export const createBarangPrediksi = async (req, res) => {
   try {
     await prisma.barang_prediksi.create({
       data: {
-        kubis: kubis,
-        lobak: lobak,
-        ayam: ayam,
-        saos: saos,
+        kubis: Number(kubis),
+        lobak: Number(lobak),
+        ayam: Number(ayam),
+        saos: Number(saos),
       },
     });
     res.status(201).json({ msg: "Register Berhasil" });

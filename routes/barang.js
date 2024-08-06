@@ -16,6 +16,7 @@ import {
   createBarangPrediksi,
   updateBarangPrediksi,
   deleteBarangPrediksi,
+  getBarangPrediksiLatest,
 } from "../controllers/barang.js";
 
 const router = express.Router();
@@ -37,6 +38,7 @@ router.delete("/barangkeluar/:id", deleteBarangKeluar);
 
 //barang prediksi
 router.get("/barangprediksi", getBarangPrediksi);
+router.get("/barangprediksilatest", getBarangPrediksiLatest);
 router.get("/barangprediksi/:id", getBarangPrediksiById);
 router.post("/barangprediksi", createBarangPrediksi);
 router.patch("/barangprediksi/:id", updateBarangPrediksi);
