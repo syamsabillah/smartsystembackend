@@ -192,7 +192,7 @@ export const createBarangKeluar = async (req, res) => {
 };
 
 export const updateBarangKeluar = async (req, res) => {
-  const { kubis, lobak, ayam, saos } = req.body;
+  const { kubis, lobak, ayam, saos, createdAT } = req.body;
   try {
     const truk = await prisma.barang_keluar.update({
       where: {
@@ -203,6 +203,7 @@ export const updateBarangKeluar = async (req, res) => {
         lobak: lobak,
         ayam: ayam,
         saos: saos,
+        createdAt: createdAT,
       },
     });
     res.status(201).json(truk);
