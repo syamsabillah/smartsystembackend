@@ -1,0 +1,28 @@
+###
+//Create a user
+GET  http://localhost:5022/loginpage
+Content-Type: application/json
+
+{
+    
+    "email": "testing@gmail.com",
+    "password": "testing" 
+  
+}
+
+###
+
+GET     http://localhost:5022/latestsuhu
+Content-Type: application/json
+
+{  
+}
+
+###
+
+POST   http://localhost:5022/suhu
+Content-Type: application/json
+
+{  
+    "suhu":15
+}

@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Session {
+  id        String   @id
+  sid       String   @unique
+  data      String
+  expiresAt DateTime
+}
+
+
+model tb_user {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password      String?
+  nama String?
+  createdAt DateTime @default(now())
+}
+
+model barang_masuk{
+  id        Int      @id @default(autoincrement())
+  kubis Int
+  lobak Int
+  ayam  Int
+  saos  Int
+  createdAt DateTime @default(now())
+}
+
+model barang_keluar{
+  id        Int      @id @default(autoincrement())
+  kubis Int
+  lobak Int
+  ayam  Int
+  saos  Int
+  createdAt DateTime @default(now())
+}
+
+model barang_prediksi{
+  id        Int      @id @default(autoincrement())
+  kubis Int
+  lobak Int
+  ayam  Int
+  saos  Int
+  createdAt DateTime @default(now())
+}
+
+model suhu{
+  id        Int      @id @default(autoincrement())
+  suhu Int
+  createdAt DateTime @default(now())
+}
