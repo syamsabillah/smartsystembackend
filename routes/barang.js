@@ -1,6 +1,7 @@
 import express from "express";
 import {
   getBarangMasuk,
+  getBarangKeluarWeek,
   getBarangMasukById,
   createBarangMasuk,
   updateBarangMasuk,
@@ -28,6 +29,7 @@ router.delete("/barangmasuk/:id", deleteBarangMasuk);
 
 //barang masuk
 router.get("/barangkeluar", getBarangKeluar);
+router.get("/barangkeluarweek", getBarangKeluarWeek);
 router.get("/barangkeluar/:id", getBarangKeluarById);
 router.post("/barangkeluar", createBarangKeluar);
 router.patch("/barangkeluar/:id", updateBarangKeluar);
